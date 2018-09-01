@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test12
+    username: root
+    password: passw0rd
+
+mybatis:
+  type-aliases-package: com.greentrust.entity
+
+
+logging:
+   classpath: log4j2.xml
+
+
+server:
+  port: 80
