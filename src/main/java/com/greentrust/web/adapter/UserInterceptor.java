@@ -13,7 +13,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 public class UserInterceptor  implements HandlerInterceptor {
-
+//以下是我在别处找到的过滤器与拦截器的不同之处
+//最大的区别是Filter过滤器可以作用于Servlet及Controller。而拦截器无法拦截到发送至Servlet中的请求，只能拦截到Controller中的。
+// 拦截器是基于动态代理的，而过滤器是基于函数回调。
+// 拦截器不依赖于servlet容器，通过动态代理实现，过滤器依赖于servlet容器。
+// 拦截器可以在方法前后，异常前后等调用，而过滤器只能在请求前和请求后各调用一次。
+// 拦截器可以利用依赖注入，因此在Spring框架程序中，优先拦截器。
 
     /**
      * controller 执行之前调用
@@ -41,3 +46,5 @@ public class UserInterceptor  implements HandlerInterceptor {
 
     }
 }
+
+

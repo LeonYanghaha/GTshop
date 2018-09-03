@@ -55,7 +55,6 @@ public class UserController {
 
     }
 
-
     // 使用session的方式
     @GetMapping("/getsession")
     public Res testSesion(HttpServletRequest request){
@@ -71,8 +70,6 @@ public class UserController {
         return  Util.getSuccessRes(list);
 
     }
-
-
 
     @PostMapping("/testexception")
     public Res testException() throws Exception{
