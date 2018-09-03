@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>shop</name>
+    <name>GTshop</name>
     <description>test shop</description>
 
     <parent>
