@@ -3,6 +3,7 @@ package com.greentrust;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -26,6 +27,8 @@ import org.springframework.web.bind.annotation.RestController;
 // 配置session
 //maxInactiveIntervalInSeconds session超时时间,单位秒
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 600)
+// 启用缓存
+@EnableCaching
 public class ShopApplication {
 
     public static void main(String[] args) {

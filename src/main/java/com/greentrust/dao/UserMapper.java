@@ -14,9 +14,14 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
+    @Select("SELECT * FROM user  WHERE usid = #{usid}")
+    User getUserByID(@Param("usid")Integer usid);
+
     @Select("SELECT * FROM user  LIMIT 0,#{listLeng}")
     List<User> getUserList(@Param("listLeng") Integer listLeng);
 
+    @Insert("INSERT INTO user ( usid , usname , usphone )VALUES(#{usid},#{usname},#{usphone})")
+    Integer saveUser(@Param("usid")Integer usid , @Param("usname")String usname ,@Param("usphone")String usphone);
 
 //    @Insert("INSERT INTO greenuser ( USNAME , USLASTTIME , USREGTIME , USPASSWORD , USPHONE )VALUES(#{usname},NOW(),NOW(),#{uspassword},#{usphone})")
 //    int regist(@Param("usname")String usname , @Param("uspassword")String uspassword ,@Param("usphone")String usphone);

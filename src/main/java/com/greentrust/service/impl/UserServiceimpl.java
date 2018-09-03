@@ -6,6 +6,7 @@ import com.greentrust.service.UserService;
 import com.greentrust.entity.User;
 import com.greentrust.utils.StrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
@@ -28,6 +29,26 @@ public class UserServiceimpl  implements UserService {
     @Autowired
     @Resource
     private RedisTemplate<String, String> rt;
+
+
+    @Override
+    public Integer saveUser(User user) {
+
+        return userMapper.saveUser(user.getUsid(),user.getUsname(),user.getUsphone());
+    }
+
+
+    //@Cacheable 该注解会在方法执行时，判断缓存people中key为#person.id
+//    的缓存是否存在,如果存在，则直接返回缓存中的数据。如果不存在，则会查数据库，然后将返回结果缓存起来。
+    @Override
+    @Cacheable (value = "user")
+    public User getUserByID(Integer id) {
+        System.out.println(id+"-----------------------");
+        User p = userMapper.getUserByID(id);
+        System.out.println(p.toString()+"...............");
+        System.out.println("为id、key为:"+id+"数据做了缓存");
+        return p;
+    }
 
     @Override
     public void testException() throws UserException{

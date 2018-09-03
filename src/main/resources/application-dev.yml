@@ -23,6 +23,13 @@ spring:
     max-idle: 8
     # 连接池中的最小空闲连接
     min-idle: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 50
+        min-idle: 0
+        max-wait: -1ms
+
   session:
     store-type: redis
 #    timeout: 2000    这些配置的session的过期时间竟然报错了。还是写在启动类的注解里面比较好

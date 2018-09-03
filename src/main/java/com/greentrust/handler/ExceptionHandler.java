@@ -17,7 +17,7 @@ class ExceptionHandle {
             UserException userException = (UserException) e;
             return Util.getErrorRes(userException.getMessage(),null);  // ResultUtil.error(girlException.getCode(), girlException.getMessage());
         }else {
-            return Util.getErrorRes("系统异常",null);
+            return Util.getErrorRes("系统异常",e.getMessage());
         }
     }
 }

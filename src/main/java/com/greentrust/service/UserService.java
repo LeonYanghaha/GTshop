@@ -16,6 +16,10 @@ public interface  UserService {
 
 //    User getUserById(Integer id);
 
+    Integer saveUser(User user);
+
+    User getUserByID(Integer id);
+
     void testException() throws Exception;
 
     boolean saveUserToRedis (User user);

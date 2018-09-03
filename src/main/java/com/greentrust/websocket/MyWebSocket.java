@@ -2,7 +2,6 @@ package com.greentrust.websocket;
 
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
-
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -12,7 +11,7 @@ import javax.websocket.server.ServerEndpoint;
 import org.springframework.stereotype.Component;
 
 //@ServerEndpoint("/websocket/{user}")
-@ServerEndpoint(value = "/websocket")
+@ServerEndpoint(value = "/websocket")   //  /webstocket   类似于命名空间，这样的访问路径是 ： ws://127.0.0.1:8081/websocket
 @Component
 public class MyWebSocket {
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
@@ -37,12 +36,12 @@ public class MyWebSocket {
             System.out.println("websocket IO异常");
         }
     }
-    //	//连接打开时执行
-    //	@OnOpen
-    //	public void onOpen(@PathParam("user") String user, Session session) {
-    //		currentUser = user;
-    //		System.out.println("Connected ... " + session.getId());
-    //	}
+    	//连接打开时执行
+//    	@OnOpen
+//    	public void onOpen(@PathParam("user") String user, Session session) {
+//    		currentUser = user;
+//    		System.out.println("Connected ... " + session.getId());
+//    	}
 
     /**
      * 连接关闭调用的方法

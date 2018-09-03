@@ -9,6 +9,7 @@ public class UserException extends RuntimeException {
         this.code = -1;
     }
     public Integer getCode() {
+
         return code;
     }
     public void setCode(Integer code) {
