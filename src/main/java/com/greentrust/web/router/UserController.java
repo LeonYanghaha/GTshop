@@ -1,7 +1,8 @@
 package com.greentrust.web.router;
-
+import java.util.concurrent.Future;
 import com.greentrust.entity.Res;
 import com.greentrust.entity.User;
+import com.greentrust.job.Job;
 import com.greentrust.service.UserService;
 import com.greentrust.utils.RedisUtil;
 import com.greentrust.utils.Util;
@@ -18,6 +19,8 @@ public class UserController {
 
     @Autowired
     private UserService userService ;
+    @Autowired
+    private Job job ;
 
     @Autowired
     private RedisUtil redisUtil ;
@@ -28,6 +31,18 @@ public class UserController {
         // System.out.println("df");
         System.out.println(redisUtil.get("5f58ffca10e806ca7459b656f5a1b19e"));
         System.out.println("1234567890");
+        System.out.println(1);
+
+
+
+         Future<Boolean>  aa = job.asynvJob();  // 通过 Future 来判断异步的代码是否执行结束
+         while (aa.isDone()){
+             System.out.println("12345");
+             break;
+         }
+
+
+        System.out.println(3);
         return Util.getSuccessRes(redisUtil.get("age"));
     }
 

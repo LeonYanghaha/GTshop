@@ -4,10 +4,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-//import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 @MapperScan("com.greentrust.dao")
 // 开启事务
 @EnableTransactionManagement
-//开启定时任务
+//开启定时任务---同步
 @EnableScheduling
+//开启定时任务--异步
+@EnableAsync
 //maxInactiveIntervalInSeconds session超时时间,单位秒
 //@EnableRedisHttpSession/*(maxInactiveIntervalInSeconds = 600)*/
 
