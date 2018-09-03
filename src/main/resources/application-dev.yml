@@ -25,6 +25,11 @@ spring:
     min-idle: 0
   session:
     store-type: redis
+#    timeout: 2000    这些配置的session的过期时间竟然报错了。还是写在启动类的注解里面比较好
+    host: 192.168.107.129
+    port: 6379
+
+
   # 配置热部署的
   devtools:
     restart:

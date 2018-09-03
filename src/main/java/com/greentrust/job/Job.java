@@ -19,11 +19,11 @@ public class Job {
     * */
 
     // 这样就启动了一个定时的同步任务
-    @Scheduled(cron = "0 0/1 * * * ?")
-    public void timerToNow() throws  Exception {
-        Thread.sleep(1000);
-        System.out.println("now time:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-    }
+//    @Scheduled(cron = "0 0/1 * * * ?")
+//    public void timerToNow() throws  Exception {
+//        Thread.sleep(1000);
+//        System.out.println("now time:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+//    }
 
     /*
     *
@@ -32,11 +32,12 @@ public class Job {
     *initialDelay：第一次延迟 X秒执行，之后按照fixedRate的规则每X秒执行
     * */
 
-    @Scheduled(fixedRate=1000)
-    public void testJob() throws Exception{
-        Thread.sleep(1000);
-        System.out.println("now time:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"------------fixedRate-----------");
-    }
+//    @Scheduled(fixedRate=1000)
+//    public void testJob() throws Exception{
+//        Thread.sleep(1000);
+//        System.out.println("now time:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"------------fixedRate-----------");
+//    }
+
 //    @Scheduled(fixedDelay =1000)
 //    public void testJob2(){
 //        System.out.println("now time:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"------------fixedDelay -----------");

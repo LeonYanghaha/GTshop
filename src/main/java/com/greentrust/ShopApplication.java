@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,9 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableScheduling
 //开启定时任务--异步
 @EnableAsync
+// 配置session
 //maxInactiveIntervalInSeconds session超时时间,单位秒
-//@EnableRedisHttpSession/*(maxInactiveIntervalInSeconds = 600)*/
-
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 600)
 public class ShopApplication {
 
     public static void main(String[] args) {
